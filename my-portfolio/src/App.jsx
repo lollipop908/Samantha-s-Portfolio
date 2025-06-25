@@ -42,7 +42,7 @@ function App() {
                 <div className="profile-pic-container">
                   <div className="profile-pic-frame">
                     <img
-                      src="images/profilepic.jpeg"
+                      src="/profilepic.jpeg"
                       alt="Samantha Jungco"
                       className="profile-pic"
                     />
