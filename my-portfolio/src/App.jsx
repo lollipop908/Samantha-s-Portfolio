@@ -23,12 +23,12 @@ function App() {
   ];
 
   const skills = [
-    "React.js",
-    "Node.js",
-    "NestJS",
-    "JavaScript",
-    "MySQL + Prisma",
-    "HTML / CSS",
+    { name: "React.js", icons: ["react.png"] },
+    { name: "Node.js", icons: ["nodejs.png"] },
+    { name: "NestJS", icons: ["nestjs.png"] },
+    { name: "JavaScript", icons: ["javascript.png"] },
+    { name: "MySQL + Prisma", icons: ["mysql.png", "prisma.png"] },
+    { name: "HTML / CSS", icons: ["html.png", "css.png"] },
   ];
 
   return (
@@ -42,7 +42,7 @@ function App() {
                 <div className="profile-pic-container">
                   <div className="profile-pic-frame">
                     <img
-                      src="/profilepic.jpeg"
+                      src="profilepic.jpeg"
                       alt="Samantha Jungco"
                       className="profile-pic"
                     />
@@ -50,7 +50,7 @@ function App() {
                   <div className="status-indicator"></div>
                 </div>
 
-                <h1 className="name">Samantha Jungco</h1>
+                <h1 className="name">Angel Jungco</h1>
                 <p className="title">Computer Science Student</p>
 
                 <div className="about-section">
@@ -79,7 +79,17 @@ function App() {
                 <div className="skills-grid">
                   {skills.map((skill, index) => (
                     <div key={index} className="skill-card">
-                      <span className="skill-text">{skill}</span>
+                      <div className="skill-icons-container">
+                        {skill.icons.map((iconSrc, iconIndex) => (
+                          <img
+                            key={iconIndex}
+                            src={iconSrc}
+                            alt={skill.name}
+                            className="skill-icon"
+                          />
+                        ))}
+                      </div>
+                      <span className="skill-text">{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -111,7 +121,7 @@ function App() {
         </div>
       </div>
 
-      {/* Enhanced Modal */}
+      {/* Modal */}
       {activeProject && (
         <div className="modal-overlay" onClick={() => setActiveProject(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -120,7 +130,7 @@ function App() {
               onClick={() => setActiveProject(null)}
               aria-label="Close modal"
             >
-              ×
+               ❌
             </button>
             <div className="modal-header">
               <div className="modal-dot"></div>
